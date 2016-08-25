@@ -452,7 +452,11 @@ ngFileUpload.service('UploadBase', ['$http', '$q', '$timeout', function ($http, 
   upload.promisesCount = 0;
 
   this.isResumeSupported = function () {
-    return window.Blob && window.Blob.prototype.slice;
+    try{
+      return window.Blob && window.Blob.prototype.slice;
+    }catch(e){
+      console.log('Exception while trying to create Blob: ' + e);
+    }
   };
 
   var resumeSupported = this.isResumeSupported();
