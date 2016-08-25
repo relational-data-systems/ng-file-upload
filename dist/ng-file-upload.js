@@ -33,7 +33,7 @@ ngFileUpload.service('UploadBase', ['$http', '$q', '$timeout', function ($http, 
     try{
       return window.Blob && window.Blob.prototype.slice;
     }catch(e){
-      console.log('RDSExeption Blob: ' + e);
+      console.log('Exception while trying to create Blob: ' + e);
     }
   };
 
